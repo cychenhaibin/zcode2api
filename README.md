@@ -23,13 +23,15 @@ python main.py serve                     # 启动网关 + 后台 UI（默认端�
 
 ```bash
 # 方式一：docker compose（推荐）
-docker compose up -d --build
+docker compose pull
+docker compose up -d
+# 后台管理：http://localhost:3001/admin
 # 账号 / 设置持久化在宿主机 ./data 目录；停止：docker compose down
 
 # 方式二：docker 原生命令
 docker build -t zcode2api:latest .
 docker run -d --name zcode2api \
-  -p 3000:3000 \
+  -p 3001:3000 \
   -v "$(pwd)/data:/data" \
   -e ZCODE_ADMIN_KEY=zcode \
   --restart unless-stopped \
@@ -48,7 +50,7 @@ docker run -d --name zcode2api \
 
 ```bash
 # 拉取并运行已发布镜像（tag: latest 或 sha-xxxxxxx）
-docker run -d --name zcode2api -p 3000:3000 \
+docker run -d --name zcode2api -p 3001:3000 \
   -v "$(pwd)/data:/data" -e ZCODE_ADMIN_KEY=zcode \
   ghcr.io/cychenhaibin/zcode2api:latest
 ```
