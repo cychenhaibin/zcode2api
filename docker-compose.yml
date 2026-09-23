@@ -16,3 +16,10 @@ services:
       ZCODE_CAPTCHA_TIMEOUT: "40"
       ZCODE_CAPTCHA_RETRIES: "4"
     restart: unless-stopped
+    networks:
+      - edge
+
+networks:
+  edge:
+    external: true
+    name: edge
