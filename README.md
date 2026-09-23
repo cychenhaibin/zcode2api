@@ -50,7 +50,7 @@ docker run -d --name zcode2api \
 # 拉取并运行已发布镜像（tag: latest 或 sha-xxxxxxx）
 docker run -d --name zcode2api -p 3000:3000 \
   -v "$(pwd)/data:/data" -e ZCODE_ADMIN_KEY=zcode \
-  ghcr.io/yuanhhs/zcode2api:latest
+  ghcr.io/cychenhaibin/zcode2api:latest
 ```
 
 > 首次发布后,GHCR 上的包默认可能为私有;如需公开拉取,请到仓库 **Packages → 该包 → Package settings → Change visibility** 设为 Public。
